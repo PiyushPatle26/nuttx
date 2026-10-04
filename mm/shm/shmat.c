@@ -39,6 +39,8 @@
 #include "sched/sched.h"
 #include "shm/shm.h"
 
+#if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
+
 /****************************************************************************
  * Private Functions
  ****************************************************************************/
@@ -306,4 +308,6 @@ errout_with_ret:
   set_errno(-ret);
   return (FAR void *)ERROR;
 }
+
+#endif /* defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__) */
 

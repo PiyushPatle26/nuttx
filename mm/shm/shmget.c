@@ -38,6 +38,8 @@
 
 #include "shm/shm.h"
 
+#if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
+
 /****************************************************************************
  * Public Data
  ****************************************************************************/
@@ -480,4 +482,6 @@ errout:
   set_errno(-ret);
   return ERROR;
 }
+
+#endif /* defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__) */
 

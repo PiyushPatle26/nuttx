@@ -39,6 +39,8 @@
 #include "sched/sched.h"
 #include "shm/shm.h"
 
+#if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
+
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
@@ -111,4 +113,6 @@ int shmdt(FAR const void *shmaddr)
 
   return ret;
 }
+
+#endif /* defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__) */
 

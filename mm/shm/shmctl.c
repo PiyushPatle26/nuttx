@@ -40,6 +40,8 @@
 
 #include "shm/shm.h"
 
+#if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
+
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
@@ -246,4 +248,6 @@ void shm_destroy(int shmid)
   nxmutex_destroy(&region->sr_lock);
   memset(region, 0, sizeof(struct shm_region_s));
 }
+
+#endif /* defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__) */
 
